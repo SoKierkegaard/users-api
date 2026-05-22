@@ -184,7 +184,8 @@ h1, h2, h3, .cyber-btn {
     cursor: pointer;
     transition: all 0.3s;
     position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 .hero-card:hover {
     border-color: var(--primary);
@@ -222,9 +223,11 @@ h1, h2, h3, .cyber-btn {
 .stat-hp { color: #00ff66; }
 
 .card-actions {
-    margin-top: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 /* Forms */
