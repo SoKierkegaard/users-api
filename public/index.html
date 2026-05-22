@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST RPG ARENA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    
+    <header class="cyber-header">
+        <h1 class="glitch" data-text="REST RPG ARENA">REST RPG ARENA</h1>
+        <div class="api-status">
+            <span class="status-dot blink"></span>
+            API STATUS: <span id="status-text">CONNECTING...</span>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <!-- Panel Izquierdo: Lista de Héroes y Formulario -->
+        <section class="panel roster-panel">
+            <div class="panel-header">
+                <h2>DATABASE ROSTER</h2>
+                <button id="btn-show-form" class="cyber-btn sm">NEW HERO</button>
+            </div>
+            
+            <div id="hero-form-container" class="hidden glass-card form-container">
+                <h3>CREATE NEW ENTITY</h3>
+                <form id="hero-form">
+                    <input type="text" id="h-name" placeholder="Hero Name" required>
+                    <select id="h-class" required>
+                        <option value="" disabled selected>Select Class</option>
+                        <option value="Warrior">Warrior (High HP)</option>
+                        <option value="Mage">Mage (High ATK)</option>
+                        <option value="Cyber-Ninja">Cyber-Ninja (Balanced)</option>
+                    </select>
+                    <div class="form-actions">
+                        <button type="submit" class="cyber-btn primary">POST /users</button>
+                        <button type="button" id="btn-cancel-form" class="cyber-btn secondary">CANCEL</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="roster-grid" id="roster">
+                <!-- Cards renderizadas dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Panel Derecho: Arena de Combate -->
+        <section class="panel arena-panel">
+            <div class="panel-header text-center">
+                <h2>BATTLE ARENA</h2>
+                <p class="subtitle">Select 2 heroes from the roster to fight</p>
+            </div>
+            
+            <div class="arena-stage">
+                <div class="fighter-slot left" id="fighter-1-slot">
+                    <div class="empty-slot-text">FIGHTER 1</div>
+                </div>
+                
+                <div class="vs-badge">VS</div>
+                
+                <div class="fighter-slot right" id="fighter-2-slot">
+                    <div class="empty-slot-text">FIGHTER 2</div>
+                </div>
+            </div>
+
+            <div class="arena-controls text-center mt-4">
+                <button id="btn-fight" class="cyber-btn danger lg glow hidden">ENGAGE COMBAT</button>
+            </div>
+
+            <div class="battle-log">
+                <h3>BATTLE LOG</h3>
+                <div class="log-content" id="battle-log-content">
+                    <div class="log-line system">Awaiting combatants...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="game.js"></script>
+</body>
+</html>
